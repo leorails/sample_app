@@ -109,6 +109,9 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] nokogiri (v1.4.4, /var/lib/gems/1.9.1/gems/nokogiri-1.4.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rspec (v2.3.0, /var/lib/gems/1.9.1/gems/rspec-2.3.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] annotate-models (v1.0.4, /var/lib/gems/1.9.1/gems/annotate-models-1.0.4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] factory_girl_rails (v1.0, /var/lib/gems/1.9.1/gems/factory_girl_rails-1.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] gravatar_image_tag (v1.0.0.pre2, /var/lib/gems/1.9.1/gems/gravatar_image_tag-1.0.0.pre2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] factory_girl (v1.3.3, /var/lib/gems/1.9.1/gems/factory_girl-1.3.3)" level="application" />
   </component>
 </module>
 
