@@ -1,0 +1,21 @@
+<h1>All users</h1>
+
+<%= will_paginate %>
+
+<!--
+Refactored the following block to use _user.html.erb partial
+<ul class="users">
+   % @users.each do |user| %>
+    <li>
+      %= gravatar_for user, :size => 30 %>
+      %= link_to user.name, user %>
+    </li>
+  % end %>
+</ul>-->
+
+<!-- Here Rails infers that @users is a list of User objects; moreover, when called with a collection of users, Rails automatically iterates through them and renders each one with the _user.html.erb partial. The result is the impressively compact code -->
+<ul class="users">
+  <%= render @users %>
+</ul>
+
+<%= will_paginate %>
