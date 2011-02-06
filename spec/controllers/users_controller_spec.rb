@@ -13,7 +13,30 @@ describe UsersController do
       end
     end
 
-    describe "for signed-in users" do
+    describe "for signed-in admin users" do
+      before(:each) do
+        admin = Factory(:user)
+        admin.toggle!(:admin)
+        @user = test_sign_in(admin)
+        second = Factory(:user, :email => "another@example.com")
+        third  = Factory(:user, :email => "another@example.net")
+
+        @users = [@user, second, third]
+
+#        30.times do
+#          @users << Factory(:user, :email => Factory.next(:email))
+      end
+
+      # regular users should not see the delete link
+      it "should have delete links for admin user" do
+        get :index
+        response.should have_selector("a", :content => "delete")
+#        :href => "/users/" + @user.id,
+#        :rel => "nofollow",
+      end
+    end
+
+    describe "for signed-in regular users" do
 
       before(:each) do
         @user = test_sign_in(Factory(:user))
@@ -25,6 +48,14 @@ describe UsersController do
         30.times do
           @users << Factory(:user, :email => Factory.next(:email))
         end
+      end
+
+      # regular users should not see the delete link
+      it "should NOT have delete links for regular users" do
+        get :index
+        response.should_not have_selector("a", :content => "delete")
+#        :href => "/users/" + @user.id,
+#        :rel => "nofollow",                                                        
       end
 
       it "should be successful" do
@@ -55,8 +86,9 @@ describe UsersController do
       end
       
     end
+    
   end
-  
+
   describe "GET 'show'" do
 
     before(:each) do
