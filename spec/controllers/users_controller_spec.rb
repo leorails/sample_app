@@ -119,10 +119,36 @@ describe UsersController do
       get :new
       response.should have_selector("input[name='user[password_confirmation]'][type='password']")
     end
+
+    describe "as a signed-in user" do
+      before(:each) do
+        @user = Factory(:user)
+      end
+      
+      it "should protect the page" do
+        test_sign_in(@user)
+        get :new
+        response.should redirect_to(root_path)
+      end
+    end
   end
 
   describe "POST 'create'" do
 
+    describe "as a signed-in user" do
+        before(:each) do
+          @user = Factory(:user)
+          @attr = { :name => "", :email => "", :password => "",
+                  :password_confirmation => "" }
+        end
+
+        it "should protect the page" do
+          test_sign_in(@user)
+          post :create, :user => @attr
+          response.should redirect_to(root_path)
+        end
+    end
+    
     describe "failure" do
 
       before(:each) do
