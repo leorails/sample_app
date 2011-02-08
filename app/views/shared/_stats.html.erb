@@ -1,0 +1,22 @@
+<!-- Since we will be including the stats on both the user show pages and the home page, the first line of Listing 12.21 picks the right one using -->
+<% @user ||= current_user %>
+<div class="stats">
+  <table summary="User stats">
+    <tr>
+      <td>
+        <a href="<%= following_user_path(@user) %>">
+          <span id="following" class="stat">
+            <%= @user.following.count %> following
+          </span>
+        </a>
+      </td>
+      <td>
+        <a href="<%= followers_user_path(@user) %>">
+          <span id="followers" class="stat">
+            <%= pluralize(@user.followers.count, "follower") %>
+          </span>
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
