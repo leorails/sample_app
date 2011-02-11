@@ -24,6 +24,14 @@ group :test do
   gem 'factory_girl_rails', '1.0'
 end
 
+group :development, :test do
+  gem 'autotest', '4.4.6'
+  gem 'autotest-rails-pure', '4.1.2'
+#  gem 'redgreen', '1.2.2', :platforms => :ruby_18
+  gem 'mynyml-redgreen', :platforms => :ruby_19   # different for 1.9 -- from http://gemcutter.org
+  gem 'ZenTest'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
