@@ -1,7 +1,7 @@
 module ApplicationHelper
   def logo
     # Fill in.
-    image_tag("logo.png", :alt => "Sample App", :class => "round")
+    image_tag("demologo.png", :alt => "Sample App", :class => "round")
   end
 
   # Return a title on a per-page basis.
